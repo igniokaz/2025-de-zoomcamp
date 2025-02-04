@@ -37,4 +37,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   taxi_rides_ny:
-
+    +database: neat-episode-446707-f5   # Your BigQuery project
+    +schema: trips_data_all             # Your BigQuery dataset

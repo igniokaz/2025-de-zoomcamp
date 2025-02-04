@@ -1,0 +1,12 @@
+# default:
+#   target: dev
+#   outputs:
+#     dev:
+#       type: bigquery
+#       method: service-account
+#       project: neat-episode-446707-f5
+#       dataset: trips_data_all                   # Prevent prefixing behavior
+#       location: europe-west2                    # Ensure region is correct
+#       threads: 1
+#       priority: interactive
+#       schema: trips_data_all                    # Match the dataset in your sources.yml
