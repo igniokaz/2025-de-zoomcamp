@@ -43,3 +43,6 @@ models:
     core:
       +schema: dbt_core              # Production models (aggregates) go here
       +materialized: table
+
+vars:
+  payment_type_values: [1,2,3,4,5,6]
