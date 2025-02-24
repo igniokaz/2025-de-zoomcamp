@@ -38,10 +38,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   taxi_rides_ny:
    staging:
-      +schema: dbt_staging             # Staging models go here
+      # +schema: dbt_staging             # Staging models go here
       +materialized: view              # Default materialization for staging models
   core:
-      +schema: dbt_core              # Production models (aggregates) go here
+      # +schema: dbt_core              # Production models (aggregates) go here
       +materialized: table
 
 vars:
