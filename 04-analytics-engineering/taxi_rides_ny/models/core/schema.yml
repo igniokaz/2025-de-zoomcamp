@@ -8,7 +8,7 @@ models:
 
   - name: dm_monthly_zone_revenue
     description: >
-      Very good description! Aggregated table of all taxi trips corresponding to both service zones (Green and yellow) per pickup zone, month and service.
+      Aggregated table of all taxi trips corresponding to both service zones (Green and yellow) per pickup zone, month and service.
       The table contains monthly sums of the fare elements used to calculate the monthly revenue. 
       The table contains also monthly indicators like number of trips, and average trip distance. 
     columns:
@@ -26,7 +26,7 @@ models:
     columns:
       - name: tripid
         data_type: string
-        description: "unique identifier conformed by the combination of vendorid and pickyp time"
+        description: "unique identifier conformed by the combination of vendorid and pickup time"
 
       - name: vendorid
         data_type: int64

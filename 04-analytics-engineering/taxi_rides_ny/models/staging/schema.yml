@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: staging
-    database: neat-episode-446707-f5
-    schema: trips_data_all
+    database: proud-climber-451915-f3
+    schema: terra_kestra_bq_bucket
 
     tables:
       - name: green_tripdata
@@ -57,7 +57,7 @@ models:
         description: ""
 
       - name: store_and_fwd_flag
-        data_type: boolean
+        data_type: string
         description: ""
 
       - name: passenger_count
@@ -109,7 +109,7 @@ models:
         description: ""
         tests:
           - accepted_values:
-              values: "{{ var('payment_type_values')}}"
+              values: "{{ var('payment_type_values') }}"
               severity: warn
               quote: false
 
@@ -149,7 +149,7 @@ models:
         description: ""
 
       - name: store_and_fwd_flag
-        data_type: boolean
+        data_type: string
         description: ""
 
       - name: passenger_count

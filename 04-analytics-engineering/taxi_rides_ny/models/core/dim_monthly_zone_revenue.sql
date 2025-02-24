@@ -1,19 +1,16 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
+{{ config(materialized='table') }}
 
 with trips_data as (
     select * from {{ ref('fact_trips') }}
 )
     select 
-    -- Revenue Grouping
+    -- Revenue grouping 
     pickup_zone as revenue_zone,
-    {{dbt.date_trunc("month", "pickup_datetime")}} as revenue_month,
-    service_type,
+    {{ dbt.date_trunc("month", "pickup_datetime") }} as revenue_month, 
 
-    -- Revenue Calculation
+    service_type, 
+
+    -- Revenue calculation 
     sum(fare_amount) as revenue_monthly_fare,
     sum(extra) as revenue_monthly_extra,
     sum(mta_tax) as revenue_monthly_mta_tax,
@@ -23,7 +20,7 @@ with trips_data as (
     sum(improvement_surcharge) as revenue_monthly_improvement_surcharge,
     sum(total_amount) as revenue_monthly_total_amount,
 
-    -- Additional Calculations
+    -- Additional calculations
     count(tripid) as total_monthly_trips,
     avg(passenger_count) as avg_monthly_passenger_count,
     avg(trip_distance) as avg_monthly_trip_distance
