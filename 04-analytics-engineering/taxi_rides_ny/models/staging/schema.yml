@@ -2,13 +2,8 @@ version: 2
 
 sources:
   - name: staging
-<<<<<<< HEAD
     database: "{{ env_var('DBT_DATABASE', 'proud-climber-451915-f3') }}"
     schema: "{{ env_var('DBT_SCHEMA', 'terra_kestra_bq_bucket') }}"
-=======
-    database: "{{ env_var('DBT_DATABASE', 'taxi-rides-ny-339813-412521') }}"
-    schema: "{{ env_var('DBT_SCHEMA', 'trips_data_all') }}"
->>>>>>> ea13968e7f22b385ec2daf536b5dd384b337ef9c
       # loaded_at_field: record_loaded_at
     tables:
       - name: green_tripdata
