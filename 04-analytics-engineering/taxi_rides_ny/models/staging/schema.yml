@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: staging
+    database: proud-climber-451915-f3
+    schema: terra_kestra_bq_bucket
+
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
