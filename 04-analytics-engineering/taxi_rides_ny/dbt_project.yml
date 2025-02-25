@@ -37,9 +37,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   taxi_rides_ny:
-   staging:
+    staging:
       +materialized: view              # Default materialization for staging models
-  core:
+    core:
       +materialized: table
 
 vars:
