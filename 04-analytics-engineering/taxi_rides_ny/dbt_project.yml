@@ -21,7 +21,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   taxi_rides_ny:
-    +database: "{{ env_var('DB_ENV_DATABASE', 'proud-climber-451915-f3') }}" 
+    +database: "{{ env_var('DBT_ENV_DATABASE', 'proud-climber-451915-f3') }}" 
     +schema: "{{ env_var('DBT_ENV_SCHEMA') }}" 
     staging:
     core:
@@ -29,8 +29,8 @@ models:
 
 seeds: 
     taxi_rides_ny:
-        +database: "{{ env_var('DB_ENV_DATABASE', 'proud-climber-451915-f3') }}" 
-        +schema: "{{ env_var('DB_ENV_SCHEMA') }}" 
+        +database: "{{ env_var('DBT_ENV_DATABASE', 'proud-climber-451915-f3') }}" 
+        +schema: "{{ env_var('DBT_ENV_SCHEMA') }}" 
         taxi_zone_lookup:
             +column_types:
                 locationid: numeric
