@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: staging
-    database: "{{ env_var('DBT_DATABASE', 'proud-climber-451915-f3') }}"
-    schema: "{{ env_var('DBT_SCHEMA', 'terra_kestra_bq_bucket') }}"
+    database: "{{ env_var('DBT_ENV_DATABASE', 'proud-climber-451915-f3') }}"
+    schema: "{{ env_var('DBT_ENV_SCHEMA') }}"
       # loaded_at_field: record_loaded_at
     tables:
       - name: green_tripdata
