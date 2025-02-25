@@ -5,11 +5,13 @@ default:
       method: service-account
       project: proud-climber-451915-f3 # Your Google Cloud project ID
       dataset: terra_kestra_bq_bucket  # Your DEV dataset
+      keyfile: '/Users/ignas/.gc/dbt-creds.json'
       location: europe-west6
     prod:
       type: bigquery
       method: service-account
       project: proud-climber-451915-f3 # Your Google Cloud project ID
       dataset: prod  # Production dataset
+      keyfile: '/Users/ignas/.gc/dbt-creds.json'
       location: europe-west6
   target: dev
