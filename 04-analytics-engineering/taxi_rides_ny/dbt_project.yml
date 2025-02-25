@@ -37,17 +37,24 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   taxi_rides_ny:
+    +database: "{{ env_var('DB_ENV_DATABASE', 'proud-climber-451915-f3') }}"  # Use Project ID
+    +schema: "{{ env_var('DBT_ENV_SCHEMA', 'dbt_staging') }}"  # Define schema override
     staging:
+      +schema: "{{ env_var('DBT_ENV_SCHEMA', 'terra_kestra_bq_bucket') }}"  # Staging
       +materialized: view              # Default materialization for staging models
     core:
+      +schema: "{{ env_var('DBT_ENV_SCHEMA', 'prod') }}"  # Production schema
+      +database: "{{ env_var('DB_ENV_DATABASE', 'proud-climber-451915-f3') }}"  # Project ID for BigQuery
+
       +materialized: table
-
-vars:
-  payment_type_values: [1,2,3,4,5,6]
-
 
 seeds: 
     taxi_rides_ny:
+        +database: "{{ env_var('DB_ENV_DATABASE', 'proud-climber-451915-f3') }}"  # Use Project ID
+        +schema: "{{ env_var('DB_ENV_SCHEMA', 'terra_kestra_bq_bucket') }}"  # Use Dataset
         taxi_zone_lookup:
             +column_types:
                 locationid: numeric
+
+vars:
+  payment_type_values: [1,2,3,4,5,6]
