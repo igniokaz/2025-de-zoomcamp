@@ -22,7 +22,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   taxi_rides_ny:
     +database: "{{ env_var('DBT_ENV_DATABASE') }}" 
-    +schema: "{{ env_var('DBT_ENV_SCHEMA', '') | trim('_') }}"
+    # +schema: "{{ env_var('DBT_ENV_SCHEMA', '') | trim('_') }}"
     staging:
     core:
       +materialized: table
@@ -30,7 +30,7 @@ models:
 seeds: 
     taxi_rides_ny:
       +database: "{{ env_var('DBT_ENV_DATABASE') }}" 
-      +schema: "{{ env_var('DBT_ENV_SCHEMA', '') | trim('_') }}"
+      # +schema: "{{ env_var('DBT_ENV_SCHEMA', '') | trim('_') }}"
       taxi_zone_lookup:
           +column_types:
               locationid: numeric
