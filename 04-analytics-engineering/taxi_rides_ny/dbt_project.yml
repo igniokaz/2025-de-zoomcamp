@@ -22,7 +22,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   taxi_rides_ny:
     +database: "{{ env_var('DBT_ENV_DATABASE') }}" 
-    # +schema: "{{ env_var('DBT_ENV_SCHEMA', '') | trim('_') }}"
     staging:
     core:
       +materialized: table
@@ -30,13 +29,9 @@ models:
 seeds: 
     taxi_rides_ny:
       +database: "{{ env_var('DBT_ENV_DATABASE') }}" 
-      # +schema: "{{ env_var('DBT_ENV_SCHEMA', '') | trim('_') }}"
       taxi_zone_lookup:
           +column_types:
               locationid: numeric
 
 vars:
   payment_type_values: [1,2,3,4,5,6]
-  debug_log: "{{ log('Resolved schema is: ' ~ target.schema, info) }}"
-  # schema_debug: "{{ log('Resolved TARGET schema: ' ~ target.schema, info) }}"
-  schema_debug: "{{ log('DBT_ENV_SCHEMA value: ' ~ env_var('DBT_ENV_SCHEMA', 'NOT SET'), info) }}"
