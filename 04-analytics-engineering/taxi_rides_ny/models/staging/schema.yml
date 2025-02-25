@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: staging
     database: "{{ env_var('DBT_ENV_DATABASE') }}"
-    schema: "staging"
+    schema: "terra_kestra_bq_bucket"
     tables:
       - name: green_tripdata
       - name: yellow_tripdata
