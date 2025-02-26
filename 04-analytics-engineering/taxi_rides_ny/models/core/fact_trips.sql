@@ -16,7 +16,6 @@ yellow_tripdata as (
     from {{ref ('stg_yellow_tripdata') }}
 ),
 
-
 trips_unioned as (
     select * from green_tripdata
     union all
@@ -39,6 +38,7 @@ select
     dropoff_zone.borough as dropoff_borough, 
     dropoff_zone.zone as dropoff_zone,  
     trips_unioned.pickup_datetime, 
+    concat(cast(extract(year from pickup_datetime) as string), '-Q', cast(extract(quarter from pickup_datetime) as string)) as revenue_year_quarter,
     trips_unioned.dropoff_datetime, 
     trips_unioned.store_and_fwd_flag, 
     trips_unioned.passenger_count, 
